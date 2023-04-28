@@ -188,11 +188,10 @@ Aşağıdakileri yapmak için profilListesi'ni kullanın:
 
 function profilListesi(fenomenler) {
   let dizi = [...fenomenler];
-  let profiles = [];
   for(let i=0; i<dizi.length; i++){
-     profiles = [...profiles, dizi[i].profile]
+     dizi[i] = dizi[i].profile;
   }
- return profiles;
+ return dizi;
 }
 console.log(profilListesi(fenomenler))
 
@@ -278,7 +277,7 @@ function fenomenGonderimSayisi(fenomenler, profile){
     }
   }
 }
-console.log(fenomenGonderimSayisi(fenomenler, "Instagram"))
+console.log(fenomenGonderimSayisi(fenomenler, "Will Smith"))
 
 
 /* Görev 9:
@@ -294,20 +293,17 @@ Not: Gönderi sayısı belli olmayan (NA) hesaba katmayın.
 
 function platformaGoreCokGonderiYapanFenomen(fenomenler, platform){
   let temp = 0;
-  let name = "";
+  let name;
   for (let i = 0; i<fenomenler.length; i++){
-    if(fenomenler[i].platform == platform){
-      if(fenomenler[i].posts > temp){
+    if(fenomenler[i].platform == platform && fenomenler[i].posts > temp){
           temp = fenomenler[i].posts;
           name = fenomenler[i].profile;
-       }
     }
-    
   }
 return name;
   
 }
-console.log(platformaGoreCokGonderiYapanFenomen(fenomenler, 'Tiktok') )
+console.log(platformaGoreCokGonderiYapanFenomen(fenomenler, 'TikTok') )
 
 
 
